@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require('cors')
 const Router = require("./api/router")
 const mongoose = require("mongoose");
-const cron = require('./services/cron-mailer');
+const cron = require('./services/old_links_remover');
 
 mongoose.connect("mongodb://localhost:27017/linker",
     { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }).then(() => console.log("Connected to MongoDB")
