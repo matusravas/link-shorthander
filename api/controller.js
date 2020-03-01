@@ -1,6 +1,7 @@
 const LinkModel = require("./model")
 const mongoose = require("mongoose");
 
+//Todo add delete if document is older than one day
 exports.get_all = (req, res) => {
     LinkModel.find().exec()
         .then(data => {

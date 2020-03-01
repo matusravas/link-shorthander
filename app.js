@@ -2,12 +2,14 @@ const express = require("express");
 const cors = require('cors')
 const Router = require("./api/router")
 const mongoose = require("mongoose");
+const cron = require('./services/cron-mailer');
 
 mongoose.connect("mongodb://localhost:27017/linker",
     { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }).then(() => console.log("Connected to MongoDB")
     ).catch((err) => console.log("DB connection refused: " + err));
 
 const app = express();
+cron.run_cron();
 
 app.use(cors());
 app.use(express.json())
